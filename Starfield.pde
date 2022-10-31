@@ -1,25 +1,39 @@
-  //your code here
+Particle[] dots;
   void setup()
   {
     background(0);
     size(500,500);
-    Particle[] dots = new Particle[1000];
-    for(int i = 0; i < dots.length;i++){
+    dots = new Particle[1000];
+    for(int i = 0; i < dots.length;i++) {
       dots[i] =  new Particle();
     }
   }
   void draw()
   {
-    //your code here
+    noStroke();
+    for (int i = 0; i < dots.length; i++) {
+      dots[i].move();
+      dots[i].show();
+    }
   }
   class Particle
   {
-    double myX, myY, myAngle, mySpeed;
-    Particle(){
-      myX = 320;
-      myY = 240;
-      myAngle;
-      mySpeed = (int)(Math.random()*10);
+    double myX, myY, myAngle;
+    int mySpeed;
+    Particle()
+    {
+      myX = 250;
+      myY = 250;
+      myAngle = 2 * (Math.random() * Math.PI);
+      mySpeed = (int)(Math.random() * 10);
+    }
+    void show() {
+      fill((int)(Math.random() * 255));
+      ellipse((float)myX, (float)myY, 1, 1);
+    }
+    void move() {
+      myX = myX + Math.cos(myAngle * mySpeed);
+      myY = myY + Math.sin(myAngle * mySpeed);
     }
   }
   
