@@ -19,16 +19,17 @@ Particle[] dots;
   class Particle
   {
     double myX, myY, myAngle;
-    int mySpeed;
+    int mySpeed, myColor;
     Particle()
     {
       myX = 250;
       myY = 250;
       myAngle = 2 * (Math.random() * Math.PI);
       mySpeed = (int)(Math.random() * 10);
+      myColor = (int)(Math.random() * 255);
     }
     void show() {
-      fill((int)(Math.random() * 255));
+      fill(myColor);
       ellipse((float)myX, (float)myY, 1, 1);
     }
     void move() {
