@@ -3,7 +3,7 @@ Particle[] dots;
   {
     background(0);
     size(500,500);
-    dots = new Particle[1000];
+    dots = new Particle[500];
     for(int i = 0; i < dots.length;i++) {
       dots[i] =  new Particle();
     }
@@ -29,7 +29,7 @@ Particle[] dots;
       myColor = (int)(Math.random() * 255);
     }
     void show() {
-      fill(myColor);
+      fill((int)(Math.random() * 255));
       ellipse((float)myX, (float)myY, 1, 1);
     }
     void move() {
