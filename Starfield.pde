@@ -1,11 +1,11 @@
-Particle[] dots;
+Particle[] dots = new Particle[500];;
   void setup()
   {
     background(0);
     size(500,500);
-    dots = new Particle[500];
     for(int i = 0; i < dots.length;i++) {
       dots[i] =  new Particle();
+      dots[0] =  new OddballParticle();
     }
   }
   void draw()
@@ -33,12 +33,23 @@ Particle[] dots;
       ellipse((float)myX, (float)myY, 1, 1);
     }
     void move() {
-      myX = myX + Math.cos(myAngle * mySpeed);
-      myY = myY + Math.sin(myAngle * mySpeed);
+      myX += Math.cos(myAngle * mySpeed);
+      myY += Math.sin(myAngle * mySpeed);
     }
   }
   
-  class OddballParticle //inherits from Particle
+  class OddballParticle extends Particle
   {
-    //your code here
+    OddballParticle(){
+      myX = myY = 235;
+    }
+  void move(){
+    myX += (int)(Math.random()*3)-1;
+    myY += (int)(Math.random()*3)-1;
   }
+  void show(){
+    noStroke();
+    fill((int)(Math.random()*255));
+    rect((float)myX,(float)myY,40,40);
+  }
+ }
