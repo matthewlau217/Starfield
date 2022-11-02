@@ -1,4 +1,4 @@
-Particle[] dots = new Particle[500];;
+Particle[] dots = new Particle[250];
   void setup()
   {
     background(0);
@@ -52,4 +52,13 @@ Particle[] dots = new Particle[500];;
     fill((int)(Math.random()*255));
     rect((float)myX,(float)myY,40,40);
   }
+ }
+ 
+ void mouseClicked()
+ {
+   background(0);
+   for(int i = 0; i < dots.length;i++) {
+      dots[i] =  new Particle();
+      dots[0] =  new OddballParticle();
+    }
  }
